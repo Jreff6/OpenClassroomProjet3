@@ -58,8 +58,22 @@ header {
 	justify-content: space-between;
 	margin: 50px 0
 }
+
+#btnLogin{
+	border: none;
+	background: none;
+	font: inherit;
+}
+
+#btnLogin:hover{
+	color: #B1663C;
+}
 section {
 	margin: 50px 0
+}
+
+#loginModal{
+	display: none;
 }
 
 h1{

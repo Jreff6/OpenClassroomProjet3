@@ -45,5 +45,26 @@ async function GetCategory(){
 
   await fetch('http://localhost:5678/api/categories')
   .then((response) =>(response.json()))
-  .then((data) => (categories = data))}
+  .then((data) => (categories = data))
+}
+GetCategory();
+
+  function genererCategories(categories){
+    console.log(categories);
+    document.querySelector(".category").innerHTML = "";
+      for (let i = 0; i < donneesCategory.length; i++) {
+          {    
+              const figure = donneesCategory[i];        
+              const sectionCategory = document.querySelector(".category");
+              const categoryElement = document.createElement("button");
+              buttonElement.innerText = figure.name;             
+            
+              sectionCategory.appendChild(categoryElement);
+              buttonElement.appendChild(categoryElement);
+          } 
+  }
+}
+window.addEventListener("load", ()=>{
+  genererCategories(categories)
+})
 

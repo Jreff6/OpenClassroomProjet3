@@ -59,22 +59,44 @@ header {
 	margin: 50px 0
 }
 
+.filters{
+	display: flex;
+	justify-content: center;
+	margin-bottom: 1%;
+}
+.category{
+	display: flex;
+	justify-content: space-between;
+}
+
+.category-button{
+	border: none;
+	border-radius: 10px #1D6154;
+	background-color: none;
+	font: inherit;
+	color: #1D6154;
+}
+
 #btnLogin{
 	border: none;
 	background: none;
 	font: inherit;
 }
 
+
 #btnLogin:hover{
 	color: #B1663C;
 }
+/**
 section {
+	REMOVED UNTIL USED IN THE NEW LOGIN PAGE
 	margin: 50px 0
 }
-
+**/
 #loginModal{
 	display: none;
 }
+
 
 h1{
 	display: flex;

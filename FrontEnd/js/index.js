@@ -41,30 +41,47 @@ window.addEventListener("load", ()=>{
   genererProjet(projets)
 })
 
-async function GetCategory(){
 
-  await fetch('http://localhost:5678/api/categories')
-  .then((response) =>(response.json()))
-  .then((data) => (categories = data))
-}
-GetCategory();
-
-  function genererCategories(categories){
-    console.log(categories);
-    document.querySelector(".category").innerHTML = "";
-      for (let i = 0; i < donneesCategory.length; i++) {
-          {    
-              const figure = donneesCategory[i];        
-              const sectionCategory = document.querySelector(".category");
-              const categoryElement = document.createElement("button");
-              buttonElement.innerText = figure.name;             
-            
-              sectionCategory.appendChild(categoryElement);
-              buttonElement.appendChild(categoryElement);
-          } 
+async function getCategories() {
+  try {
+    const response = await fetch('http://localhost:5678/api/categories');
+    if (!response.ok) {
+      throw new Error('Erreur lors de la récupération des catégories');
+    }
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error('Erreur lors de la récupération des catégories :', error);
+    return [];
   }
 }
-window.addEventListener("load", ()=>{
-  genererCategories(categories)
-})
+
+function createCategoryButtons(categories) {
+  const categoryContainer = document.querySelector('.category');
+
+  categoryContainer.innerHTML = '';
+
+  categories.forEach((category) => {
+    const button = document.createElement('button');
+    button.innerText = category.name;
+    button.classList.add('category-button');
+
+    button.addEventListener('click', () => {
+      // Action à effectuer lors du clic sur le bouton
+      console.log(`Vous avez cliqué sur la catégorie : ${category.name}`);
+    });
+
+    categoryContainer.appendChild(button);
+  });
+}
+
+// Fonction principale
+async function main() {
+  const categories = await getCategories();
+  createCategoryButtons(categories);
+}
+
+// Appel de la fonction principale au chargement de la page
+window.addEventListener('load', main);
+
 

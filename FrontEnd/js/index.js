@@ -82,10 +82,12 @@ async function catCreate() {
 window.addEventListener("load", catCreate);
 console.log(categories)
 
+const filteredProjects = [];
 
-button.addEventListener('click', () => {
+addEventListener('click', () => {
   console.log('filtering')
   const categoryId = categories.id;
-  const projetsFiltres = projets.filter(projets => projets.id === categoryId);
+  const projetsId = projets.id;
+  const projetsFiltres = projets.filter(projetsId === categoryId);
   genererProjet(projetsFiltres);
 });

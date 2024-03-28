@@ -75,14 +75,17 @@ function createCategoryButtons(categories) {
   });
 }
 
-// Fonction principale
-async function main() {
+async function catCreate() {
   const categories = await getCategories();
   createCategoryButtons(categories);
 }
-
-// Appel de la fonction principale au chargement de la page
-window.addEventListener('load', main);
+window.addEventListener("load", catCreate);
 console.log(categories)
 
 
+button.addEventListener('click', () => {
+  console.log('filtering')
+  const categoryId = categories.id;
+  const projetsFiltres = projets.filter(projets => projets.id === categoryId);
+  genererProjet(projetsFiltres);
+});

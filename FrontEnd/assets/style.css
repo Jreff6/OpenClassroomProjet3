@@ -67,14 +67,21 @@ header {
 .category{
 	display: flex;
 	justify-content: space-between;
+	width: 33%;
 }
 
 .category-button{
-	border: none;
-	border-radius: 10px #1D6154;
-	background-color: none;
+	border: 1px solid #1D6154;
+	border-radius: 30px;
+	background: none;
 	font: inherit;
 	color: #1D6154;
+	padding: 8px 8px 8px 8px;
+}
+
+.category-button:hover{
+	background-color: #1D6154;
+	color: white;
 }
 
 #btnLogin{

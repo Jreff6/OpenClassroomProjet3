@@ -83,5 +83,6 @@ async function main() {
 
 // Appel de la fonction principale au chargement de la page
 window.addEventListener('load', main);
+console.log(categories)
 
 

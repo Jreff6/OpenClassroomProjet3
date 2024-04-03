@@ -61,16 +61,15 @@ function createCategoryButtons(categories) {
 
   categoryContainer.innerHTML = '';
 
+const allButton = document.createElement('button');
+allButton.id = 0;
+allButton.innerText = 'Tous';
+allButton.classList.add('category-button');
+categoryContainer.appendChild(allButton);
   categories.forEach((category) => {
     const button = document.createElement('button');
     button.innerText = category.name;
     button.classList.add('category-button');
-
-    button.addEventListener('click', () => {
-      // Action à effectuer lors du clic sur le bouton
-      console.log(`Vous avez cliqué sur la catégorie : ${category.name}`);
-    });
-
     categoryContainer.appendChild(button);
   });
 }
@@ -84,10 +83,13 @@ console.log(categories)
 
 const filteredProjects = [];
 
+const categoryButtons = document.querySelectorAll('.category-button');
+
 addEventListener('click', () => {
   console.log('filtering')
-  const categoryId = categories.id;
+  const clickedCat = categories.id;
   const projetsId = projets.id;
-  const projetsFiltres = projets.filter(projetsId === categoryId);
+  const projetsFiltres = projets.filter(projetsId === clickedCat);
+  
   genererProjet(projetsFiltres);
 });

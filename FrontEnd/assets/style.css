@@ -67,7 +67,7 @@ header {
 .category{
 	display: flex;
 	justify-content: space-between;
-	width: 33%;
+	width: 40%;
 }
 
 .category-button{

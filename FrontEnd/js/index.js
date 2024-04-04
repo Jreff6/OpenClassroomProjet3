@@ -1,3 +1,5 @@
+//const { id } = require("ethers");
+
 let projets = [];
 let categories = [];
 
@@ -65,11 +67,23 @@ const allButton = document.createElement('button');
 allButton.id = 0;
 allButton.innerText = 'Tous';
 allButton.classList.add('category-button');
+allButton.addEventListener('click' , () => {
+  genererProjet(projets);
+  console.log('filtre utilise tous')
+});
 categoryContainer.appendChild(allButton);
+
+
   categories.forEach((category) => {
     const button = document.createElement('button');
     button.innerText = category.name;
     button.classList.add('category-button');
+    button.id = category.id;
+    button.addEventListener('click', () => {
+      const categoryId = parseInt(button.id);
+      const filteredItems = projets.filter((element => element.category.id === categoryId));
+      genererProjet(filteredItems);
+    })
     categoryContainer.appendChild(button);
   });
 }
@@ -83,13 +97,18 @@ console.log(categories)
 
 const filteredProjects = [];
 
+function filtrerListe(categoryId) {
+  return liste.filter((element) => element.category.id === categoryId);
+}
+
 const categoryButtons = document.querySelectorAll('.category-button');
 
-addEventListener('click', () => {
-  console.log('filtering')
-  const clickedCat = categories.id;
-  const projetsId = projets.id;
-  const projetsFiltres = projets.filter(projetsId === clickedCat);
-  
-  genererProjet(projetsFiltres);
-});
+
+categoryButtons.forEach((categoryButtons) => {
+  categoryButtons.addEventListener("click", function () {
+    const categoryId = parseInt(button.getAttribute("id"));
+
+    for (categoryId >=0;;) {
+      const filteredItems = filtrerListe(categoryId);
+      mettreAJourListe(filteredItems);
+    }})})

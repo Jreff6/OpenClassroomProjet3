@@ -112,3 +112,9 @@ categoryButtons.forEach((categoryButtons) => {
       const filteredItems = filtrerListe(categoryId);
       mettreAJourListe(filteredItems);
     }})})
+
+    const loginButton = document.getElementById("btnLogin");
+
+  loginButton.addEventListener("click", function() {
+    window.location.href = "login.html";
+  });

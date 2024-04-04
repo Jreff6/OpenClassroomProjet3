@@ -7,7 +7,11 @@
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Work+Sans&display=swap" rel="stylesheet">
 	<meta name="description" content="">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+		integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+		crossorigin="anonymous" referrerpolicy="no-referrer" >
 	<link rel="stylesheet" href="./assets/loginStyle.css">
+    <script src="./js/login.js" defer></script>
 	
 </head>
 
@@ -16,15 +20,15 @@
         <h1>Sophie Bluel <span>Architecte d'intérieur</span></h1>
         <nav>
             <ul>
-                <li>projets</li>
-                <li>contact</li>
+                <li><a href="./index.html#projets">projets</a></li>
+                <li><a href= "./index.html#contact">contact</a></li>
                 <li><button id="btnLogin">login</button></li>
                 <li><img src="./assets/icons/instagram.png" alt="Instagram"></li>
             </ul>
         </nav>
     </header>
     <div class="formContainer">
-      <form id="loginForm">
+      <form  method="post" id="loginForm">
         <h1>Log In</h1>
         <div class="formGroup">
           <label for="email">E-mail</label>
@@ -37,7 +41,7 @@
           <input type="password" id="password" name="password" required>
         </div>
           <div class="sendButton">
-             <button type="submit" class="subButton">Se connecter</button>
+             <input type="submit" class="subButton" value="Se Connecter">
           </div>
       </form>
       <div class="forgetContainer">
@@ -48,4 +52,5 @@
     <p>Mentions Légales</p>
  </footer>
 </body>
+
 </html>

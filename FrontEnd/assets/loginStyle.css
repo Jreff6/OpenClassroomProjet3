@@ -1,6 +1,6 @@
 body {
 	max-width: 1440px;
-	margin:auto;
+	margin: auto;
 	font-family: 'Work Sans' ;
 	font-size: 14px;
     background-color: #FFFEF8;
@@ -43,8 +43,12 @@ nav ul {
 }
 nav li {
 	padding: 0 10px;
-	font-size: 16px;
-    
+	font-size: 16px;  
+}
+
+li a {
+    text-decoration: none;
+    color: inherit;
 }
 
 li:hover {
@@ -136,7 +140,7 @@ footer{
     background-color: #ffffff;
     display: flex;
     justify-content: flex-end;
-    height: auto;
+    margin-top: 55vh;
     margin-bottom: 0%;
 }
 

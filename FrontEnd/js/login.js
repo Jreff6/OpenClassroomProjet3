@@ -13,12 +13,10 @@ connect();
 });
 
 
-//localStorage.setItem("token", response.token);
 //function checkInput({}})
 
 async function connect(){
   console.log("trying to connect");
-  let logResponse = [];
 
   await fetch('http://localhost:5678/api/users/login', {
     method: 'POST',
@@ -27,7 +25,17 @@ async function connect(){
     },
     body: JSON.stringify(userInfo)
   })
-  .then((response) => (response.json()))
-  .then((data) => (logResponse = data))
-  
+  .then(response => response.json())
+  .then((data) =>{
+      if ( data && data.token) {
+        localStorage.setItem("token", data.token)
+        window.location.href = './index.html';
+      } else {
+        console.log('Erreur dans les identifiants')
+        
+      }
+  })
+  .catch(error =>{
+    console.error('Erreur lors de la connexion')
+  })
 };

@@ -118,3 +118,21 @@ categoryButtons.forEach((categoryButtons) => {
   loginButton.addEventListener("click", function() {
     window.location.href = "login.html";
   });
+
+const token = localStorage.getItem('token');
+const editDisplay = document.getElementById('editDisplay')
+const filterDisplay = document.getElementById('filters')
+
+async function editCheck(){
+  if (token){
+    editDisplay.style.display = 'block'
+    filterDisplay.style.display ='none'
+  } else {
+    editDisplay.style.display = 'none'
+    
+  }
+};
+
+window.addEventListener("load", ()=>{
+  editCheck()
+})

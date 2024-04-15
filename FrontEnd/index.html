@@ -15,7 +15,13 @@
 	
 </head>
 <body>
+<div id="editDisplay">
+ <div class="editWrap">	
+	<span class="editHead"><i class="fa-regular fa-pen-to-square"></i><span class="editText">Mode édition</span>
+ </div>
+</div> 
 <header>
+	
 	<h1>Sophie Bluel <span>Architecte d'intérieur</span></h1>
 	<nav>
 		<ul>
@@ -38,23 +44,13 @@
 			<p>En cas de besoin, une équipe pluridisciplinaire peut-être constituée : architecte DPLG, décorateur(trice)</p>
 		</article>
 	</section>
-	<section id="loginModal">
-		<div id="modal" class="modal">
-			<div class="modal-content">
-			  <span class="close">&times;</span>
-			  <h2>Connectez-vous</h2>
-			  <!--Connection Form-->
-			  <form id="login-form">
-				<input type="text" id="username" placeholder="Nom d'utilisateur">
-				<input type="password" id="password" placeholder="Mot de passe">
-				<button type="submit">Se connecter</button>
-			  </form>
-			</div>
-		  </div>
-	</section>
 	<section id="portfolio">
-		<h2>Mes Projets</h2>
-		<div class="filters">
+	  <div class="titleWrapper">
+		<h2 id="projectsTitle">Mes Projets</h2>
+		<i class="fa-regular fa-pen-to-square" id="editIcon"></i>	
+		<button class="editButton">modifier</button>
+	  </div>	
+		<div class="filters" id="filters">
 			<div class="category"></div>
 		</div>	
 		<div class="gallery">

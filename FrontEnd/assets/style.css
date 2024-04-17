@@ -88,6 +88,8 @@ header {
 	margin-top: 10%;
 }
 
+
+
 .editButton{
 	margin-bottom: 2em;
 	background: none;
@@ -129,7 +131,19 @@ header {
 	color: white;
 }
 
+.effet-hover:hover{
+	background-color: #1D6154;
+	color: white;
+	
+}
+
 #btnLogin{
+	border: none;
+	background: none;
+	font: inherit;
+}
+
+#btnLogout{
 	border: none;
 	background: none;
 	font: inherit;

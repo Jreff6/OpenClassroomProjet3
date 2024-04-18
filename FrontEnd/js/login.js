@@ -13,6 +13,8 @@ connect();
 });
 
 
+const logFail = document.getElementById('logError')
+
 //function checkInput({}})
 
 async function connect(){
@@ -32,6 +34,7 @@ async function connect(){
         window.location.href = './index.html';
       } else {
         console.log('Erreur dans les identifiants')
+        logError.style.display = 'block'
         
       }
   })

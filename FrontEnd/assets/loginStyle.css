@@ -136,6 +136,10 @@ input{
     text-decoration: underline;
 }
 
+#logError{
+    display: none;
+}
+
 footer{
     background-color: #ffffff;
     display: flex;

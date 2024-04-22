@@ -124,34 +124,33 @@ const editDisplay = document.getElementById('editDisplay')
 const filterDisplay = document.getElementById('filters')
 const editButton = document.getElementById('editButton')
 const editIcon = document.getElementById('editIcon')
-const logoutButton = document.getElementById('btnLogout')
-const logButton = document.getElementById('btnLogin')
+const btnLogin = document.getElementById('btnLogin')
+const btnLogout = document.getElementById('btnLogout')
 
 async function editCheck(){
   if (token){
     editDisplay.style.display = 'block'
-    filterDisplay.style.display ='none'
-    logButton.style.display ='none'
-    logoutButton.style.display ='block'
+    btnLogin.style.display = 'none'
   } else {
-    editDisplay.style.display = 'none'
+    editDisplay.style.display = 'none' 
     editButton.style.display = 'none'
     editIcon.style.display = 'none'
-    logoutButton.style.display = 'none'
+    btnLogout.style.display = 'none'
   }
 };
 
 window.addEventListener("load", ()=>{
-  editCheck()
+  editCheck();
 })
 
-//document.addEventListener('DOMContentLoaded', function(){
-  //const forcedButton = document.getElementById('0');
-  //forcedButton.classList.add('effet-hover');
-//})
+document.addEventListener('DOMContentLoaded', function() {
 
-logoutButton.addEventListener('click', function(){
-  localStorage.removeItem('token')
-  window.location.reload();
+  btnLogout.addEventListener('click', function() {
 
+    localStorage.removeItem('token');
+    
+    // Recharger la page
+    window.location.reload();
+  });
 });
+

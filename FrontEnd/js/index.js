@@ -3,7 +3,7 @@
 let projets = [];
 let categories = [];
 
-
+// récupérer les projets via l'API
 async function init(){
     console.log("Starting");
   
@@ -162,6 +162,7 @@ const modal1 = document.getElementById('modal1')
 async function openModale(e) {
   e.stopPropagation();
   modal1.style.display = 'flex';
+  projectsModales();
 }
 
 async function closeModale(e) {
@@ -178,3 +179,25 @@ document.addEventListener("click", (e) => {
     modal1.style.display = "none";
   }
 });
+
+// générer les projets dans la modale
+const projectsModale = document.querySelector(".projectsImages");
+
+function projectsModales() {
+  console.log(projets);
+
+  projectsModale.innerHTML = "";
+  projets.forEach((project) => {
+    const figure = document.createElement("figure");
+    figure.id = "figureModale";
+    const img = document.createElement("img");
+    img.src = project.imageUrl;
+    img.alt = project.title;
+    const deleteIcon = document.createElement("i");
+    deleteIcon.classList.add("fa-solid", "fa-trash-can");
+    deleteIcon.setAttribute("data-project-id", project.id);
+
+    figure.appendChild(img);
+    figure.appendChild(deleteIcon);
+    projectsModale.appendChild(figure);
+  })}

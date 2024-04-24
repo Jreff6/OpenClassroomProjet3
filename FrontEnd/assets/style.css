@@ -135,6 +135,25 @@ header {
 	display: none;
 }
 
+#projectModalWrapper{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+}
+
+.projectsImages{
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    width: 70%;
+    margin: 35px auto;
+}
+
+.projectsImages img {
+	margin: 10px 0;
+	height: 90px;
+}
+
 
 .titleWrapper{
 	display: flex;

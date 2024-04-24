@@ -88,7 +88,7 @@ header {
 }
 
 #modal1{
-	display: flex;
+	display: none;
 	flex-direction: column;
 	position: fixed;
 	top: 50%;
@@ -101,6 +101,7 @@ header {
 	
 }
 
+
 .closeBtnWrap{
 	display: flex;
 	align-items: center;
@@ -109,16 +110,29 @@ header {
 	padding-right: 10px;
 }
 
-.close-modal{
+#close-modal{
 	background: none;
 	border: none;
 	font-size: 25px;
+}
+
+#modaleAddProject{
+	border: 1px solid #1D6154;
+	border-radius: 30px;
+	background-color: #1D6154;
+	font: inherit;
+	color: white;
+	padding: 8px 8px 8px 8px;
 }
 
 .modalTitleWrapper{
 	display: flex;
 	justify-content: center;
 	font-size: 26px;
+}
+
+#modaleForm{
+	display: none;
 }
 
 

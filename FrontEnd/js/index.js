@@ -149,8 +149,32 @@ document.addEventListener('DOMContentLoaded', function() {
 
     localStorage.removeItem('token');
     
-    // Recharger la page
     window.location.reload();
   });
 });
 
+// gestion des modales
+
+const editToggle = document.getElementById('editButton')
+const CloseModalIcon = document.getElementById('close-modal')
+const modal1 = document.getElementById('modal1')
+
+async function openModale(e) {
+  e.stopPropagation();
+  modal1.style.display = 'flex';
+}
+
+async function closeModale(e) {
+  e.stopPropagation
+  modal1.style.display ='none'
+}
+editToggle.addEventListener('click', openModale)
+CloseModalIcon.addEventListener('click', closeModale)
+
+document.addEventListener("click", (e) => {
+  const insideModale = document.getElementById('modal1');
+
+  if (!insideModale.contains(e.target)) {
+    modal1.style.display = "none";
+  }
+});

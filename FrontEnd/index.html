@@ -47,17 +47,57 @@
 	</section>
 	<aside id="modal1">
         <div class="closeBtnWrap">
-			<button class='close-modal'>&times</button>
+			<button id='close-modal'>&times</button>
 		</div>
 		<div class="modalTitleWrapper">
 			<p class="modalTitle">Galerie Photo</p>
 		</div>	
-		<div class="modal1">
+		<div id="projectModalWrapper">
+			<div id="projectsImages">
+					<!--JS generated projects-->
+			</div>
 			
 			
 			
 		</div>
+		<button id="modaleAddProject">Ajouter une Photo</button>
 	</aside>
+
+	<aside id="modaleForm">
+		<div class="formWrapper">
+			<div class="modale-projet-icon">
+				<a href="" class="returnIcon">
+					<i class="fa-solid fa-arrow-left"></i>
+				</a>
+				<a href="" class="closeIcon">
+					<i class="fa-solid fa-xmark"></i>
+				</a>
+			</div>
+			<h2>Ajout photo</h2>
+			<form class="addProjectForm" action="" enctype="multipart/form-data">
+				<div id="addPic">
+					<i class="fa-regular fa-image"></i>
+					<label for="photo">+ Ajouter photo</label>
+					<input type="file" name="photo" id="photo">
+					<span>jpg, png : 4mo max</span>
+				</div>
+				<div class="formTitle">
+					<label for="titre">Titre</label>
+					<input class="js-title" type="text" name="titre" id="titre">
+				</div>
+				<div class="formCategories">
+					<label for="categorie">Catégorie</label>
+					<select name="categorie" id="categorie" class="js-categoryId">
+					
+					</select>
+				</div>
+				<input type="submit" id="ModalFormSend" value="Valider">
+			</form>
+		</div>
+	</aside>
+
+
+
 	<section id="portfolio">
 	  <div class="titleWrapper">
 		<h2 id="projectsTitle">Mes Projets</h2>

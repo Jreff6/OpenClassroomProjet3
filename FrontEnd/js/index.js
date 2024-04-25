@@ -199,26 +199,29 @@ function projectsModales() {
     figure.appendChild(img);
     figure.appendChild(deleteIcon);
     projectsModale.appendChild(figure);
-  })}
-
+  });
   projectsModale.querySelectorAll(".fa-trash-can").forEach((icon) => {
+    console.log('suppression en cours')
     icon.addEventListener('click', (e) => {
-      stopPropagation();
+      e.stopPropagation();
       const projectId = e.target.getAttribute('data-project-id');
       console.log('projectId')
       deleteProject(projectId);
     });
   });
+}
 
+  
   function deleteProject(projectId) {
-    fetch("http://localhost:5678/api/works/"+projectId, {
+    fetch("http://localhost:5678/api/works/" + projectId, {
       method: "DELETE",
       headers: { Authorization: `Bearer ${token}` },
     }).then((response) => {
       if (response.ok) {
-        console.log("Le projet a été supprimé avec succès.");
+      
         init();
         projectsModales();
+        genererProjet(projets);
       } else {
         console.error("Erreur lors de la suppression du projet.");
       }

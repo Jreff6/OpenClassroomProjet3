@@ -239,4 +239,5 @@ async function openForm(e) {
   addForm.style.display = 'flex'
 
 }
+
 addProjectButton.addEventListener('click', openForm)

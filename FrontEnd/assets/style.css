@@ -88,13 +88,13 @@ header {
 }
 
 #modal1{
-	display: none;
+	display: flex;
 	flex-direction: column;
 	position: fixed;
 	top: 50%;
 	left: 50%;
-	width: 30%;
-	height: 65%;
+	width: 630px;
+	height: 688px;
 	transform: translate(-50%, -50%);
 	background: white;
 	border-radius:  10px;
@@ -140,20 +140,38 @@ header {
 	align-items: center;
 	justify-content: center;
 	width: 100%;
+	border-bottom: 1px solid gray;
+	margin-bottom: 45%;
 }
 
 .projectsImages{
     display: grid;
     grid-template-columns: repeat(5, 1fr);
-    width: 70%;
-    margin: 35px auto;
+    margin: 15px
 }
 
 .projectsImages img {
 	margin: 10px 0;
-	height: 90px;
+	height: 102.57px;
 }
 
+#figureModale{
+	position: relative;
+	display: inline-block;
+	margin: 0 7px 12px 0;
+}
+
+#figureModale i {
+    color: white;
+    position: absolute; 
+    font-size: 0.7rem;
+    top: 14px; 
+    right: 9px;
+    padding: 4px;
+    background: black;
+    border-radius: 3px;
+    cursor: pointer;
+}
 
 .titleWrapper{
 	display: flex;

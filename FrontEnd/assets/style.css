@@ -88,7 +88,7 @@ header {
 }
 
 #modal1{
-	display: flex;
+	display: none;
 	flex-direction: column;
 	position: fixed;
 	top: 50%;
@@ -131,9 +131,8 @@ header {
 	font-size: 26px;
 }
 
-#modaleForm{
-	display: none;
-}
+
+
 
 #projectModalWrapper{
 	display: flex;
@@ -171,6 +170,37 @@ header {
     background: black;
     border-radius: 3px;
     cursor: pointer;
+}
+
+#modaleForm{
+	display: block;
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	width: 630px;
+	height: 688px;
+	transform: translate(-50%, -50%);
+	background: white;
+	border-radius:  10px;
+	padding-top: 18px;
+	
+}
+
+.formwrapper{
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+}
+
+.modale-projet-icon{
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	padding : 0 25px 0 25px;
+}
+
+.closeIcon{
+	font-size: 25px;
 }
 
 .titleWrapper{

@@ -227,3 +227,16 @@ function projectsModales() {
       }
     });
   }
+
+  
+
+const addProjectButton = document.getElementById('modaleAddProject')
+const addForm = document.getElementById('modaleForm')
+
+async function openForm(e) {
+  e.stopPropagation
+  modal1.style.display ='none'
+  addForm.style.display = 'flex'
+
+}
+addProjectButton.addEventListener('click', openForm)

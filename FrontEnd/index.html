@@ -71,26 +71,28 @@
 					<i class="fa-solid fa-xmark"></i>
 				</a>
 			</div>
-			<h2>Ajout photo</h2>
-			<form class="addProjectForm" action="" enctype="multipart/form-data">
-				<div id="addPic">
-					<i class="fa-regular fa-image"></i>
-					<label for="photo">+ Ajouter photo</label>
-					<input type="file" name="photo" id="photo">
-					<span>jpg, png : 4mo max</span>
-				</div>
-				<div class="formTitle">
-					<label for="titre">Titre</label>
-					<input class="js-title" type="text" name="titre" id="titre">
-				</div>
-				<div class="formCategories">
-					<label for="categorie">Catégorie</label>
-					<select name="categorie" id="categorie" class="js-categoryId">
+			<div id="formItemsWrapper">
+				<h2>Ajout photo</h2>
+				<form class="addProjectForm" action="" enctype="multipart/form-data">
+					<div id="addPic">
+						<i class="fa-regular fa-image"></i>
+						<label for="photo">+ Ajouter photo</label>
+						<input type="file" name="photo" id="photo">
+						<span>jpg, png : 4mo max</span>
+					</div>
+					<div class="formTitle">
+						<label for="titre">Titre</label>
+						<input class="js-title" type="text" name="titre" id="titre">
+					</div>
+					<div class="formCategories">
+						<label for="categorie">Catégorie</label>
+						<select name="categorie" id="categorie" class="js-categoryId">
 					
-					</select>
-				</div>
-				<input type="submit" id="ModalFormSend" value="Valider">
-			</form>
+						</select>
+					</div>
+					<input type="submit" id="ModalFormSend" value="Valider">
+				</form>
+			</div>	
 		</div>
 	</aside>
 

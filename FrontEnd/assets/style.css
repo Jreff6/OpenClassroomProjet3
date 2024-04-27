@@ -223,12 +223,11 @@ header {
 	margin-top: 15px;
 }
 
-#addPic label{
+label{
 	background-color: #B9C5CC;
 	border-radius: 8px;
 	width: 173px;
 	height: 36px;
-	padding: 5px 0 5px 10px;
 
 }
 

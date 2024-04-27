@@ -241,3 +241,12 @@ async function openForm(e) {
 }
 
 addProjectButton.addEventListener('click', openForm)
+
+// Gestion de l'input image dans la modale
+
+const label = document.getElementById('photoLabel');
+const input = document.getElementById('photo')
+
+label.addEventListener('click', ()=> {
+  input.click();
+});

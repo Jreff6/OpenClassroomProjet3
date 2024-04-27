@@ -76,8 +76,10 @@
 				<form class="addProjectForm" action="" enctype="multipart/form-data">
 					<div id="addPic">
 						<i class="fa-regular fa-image"></i>
-						<label for="photo">+ Ajouter photo</label>
-						<input type="file" name="photo" id="photo">
+						<span id="labelWrapper">
+							<label for="photo" id="photoLabel">+ Ajouter photo</label>
+						</span>
+						<input type="file" name="photo" id="photo" accept="image/jpeg, image/png">
 						<span>jpg, png : 4mo max</span>
 					</div>
 					<div class="formTitle">

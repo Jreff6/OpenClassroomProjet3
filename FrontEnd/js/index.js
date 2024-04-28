@@ -244,9 +244,29 @@ addProjectButton.addEventListener('click', openForm)
 
 // Gestion de l'input image dans la modale
 
-const label = document.getElementById('photoLabel');
-const input = document.getElementById('photo')
+// AFFICHER L'IMAGE UNE FOIS CHOISIE DANS LE DOSSIER
 
-label.addEventListener('click', ()=> {
-  input.click();
+const inputFile = document.getElementById('photo')
+const formPhoto = document.getElementById('addPic')
+const formIcon = document.getElementById('formIcon')
+const formLabel = document.getElementById('labelWrapper')
+const formDetails = document.getElementById('imgDetails')
+
+inputFile.addEventListener("change", function () {
+  const file = this.files[0];
+  if (file) {
+    const reader = new FileReader();
+    reader.onload = function (e) {
+      const imagePreview = document.createElement("img");
+      imagePreview.src = e.target.result;
+      formPhoto.appendChild(imagePreview);
+      formPhoto.classList.add("photo-selected");
+    };
+    inputFile.style.display ='none'
+    formIcon.style.display = 'none'
+    formLabel.style.display ='none'
+    formDetails.style.display = 'none'
+    reader.readAsDataURL(file);
+
+  }
 });

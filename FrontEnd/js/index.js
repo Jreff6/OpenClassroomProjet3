@@ -327,6 +327,7 @@ async function AddNewProject(e) {
         genererProjet(projets);
         closeForm();
         openModale(e);
+      
       } else if (response.status === 500) {
         alert("Erreur du serveur");
       } else {
@@ -340,10 +341,11 @@ async function AddNewProject(e) {
 
 submitModale.addEventListener("click", AddNewProject);
 
-const closeFormIcon = document.getElementsByClassName('closeIcon');
+const closeFormIcon = document.getElementById('close-form');
 
 function closeForm(e) {
+  e.stopPropagation
   addForm.style.display ='none'
 };
 
-closeFormIcon.addEventListener('click',closeForm);
+closeFormIcon.addEventListener('click', closeForm);

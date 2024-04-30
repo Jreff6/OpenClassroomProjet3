@@ -235,7 +235,7 @@ function projectsModales() {
   }
 
   
-
+// ouverture du form 
 const addProjectButton = document.getElementById('modaleAddProject')
 const addForm = document.getElementById('modaleForm')
 
@@ -324,7 +324,9 @@ async function AddNewProject(e) {
       if (response.status === 201) {
         alert("Projet ajouté avec succès");
         init();
-        //closeModale();
+        genererProjet(projets);
+        closeForm();
+        openModale(e);
       } else if (response.status === 500) {
         alert("Erreur du serveur");
       } else {
@@ -337,3 +339,11 @@ async function AddNewProject(e) {
 }
 
 submitModale.addEventListener("click", AddNewProject);
+
+const closeFormIcon = document.getElementsByClassName('closeIcon');
+
+function closeForm(e) {
+  addForm.style.display ='none'
+};
+
+closeFormIcon.addEventListener('click',closeForm);

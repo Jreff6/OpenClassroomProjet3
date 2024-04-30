@@ -50,8 +50,12 @@ async function getCategories() {
     if (!response.ok) {
       throw new Error('Erreur lors de la récupération des catégories');
     }
-    const data = await response.json();
+    const data = await response.json()
+    .then((data) => (categories = data));
+    console.log(categories)
     return data;
+
+
   } catch (error) {
     console.error('Erreur lors de la récupération des catégories :', error);
     return [];
@@ -127,6 +131,8 @@ const editIcon = document.getElementById('editIcon')
 const btnLogin = document.getElementById('btnLogin')
 const btnLogout = document.getElementById('btnLogout')
 
+
+// check si on est connecté ou pas 
 async function editCheck(){
   if (token){
     editDisplay.style.display = 'block'
@@ -237,7 +243,7 @@ async function openForm(e) {
   e.stopPropagation
   modal1.style.display ='none'
   addForm.style.display = 'flex'
-
+  categoriesSelect();
 }
 
 addProjectButton.addEventListener('click', openForm)
@@ -270,3 +276,64 @@ inputFile.addEventListener("change", function () {
 
   }
 });
+
+// afficher les catégories dans le menu dropdown 
+
+const selectCategory = document.querySelector(".js-categoryId");
+
+function categoriesSelect() {
+  selectCategory.innerHTML = '<option value="" selected></option>';
+
+  for (let i = 0; i < categories.length; i++) {
+    const categoryDrop = categories[i];
+    const option = document.createElement("option");
+    option.value = categoryDrop.id;
+    option.textContent = categoryDrop.name;
+    console.log('generation des choix dans la liste')
+    selectCategory.appendChild(option);
+  }
+}
+
+
+
+
+const submitModale = document.getElementById("ModalFormSend");
+
+async function AddNewProject(e) {
+  e.preventDefault();
+
+  const formData = new FormData();
+  const titre = document.querySelector(".js-title").value;
+  const categorie = selectCategory.value;
+  const photo = inputFile.files[0];
+
+  if (categorie === "" || titre === "" || photo === undefined) {
+    alert("Merci de remplir tous les champs");
+  } else {
+    formData.append("title", titre);
+    formData.append("category", categorie);
+    formData.append("image", photo);
+
+    try {
+      const response = await fetch("http://localhost:5678/api/works", {
+        method: "POST",
+        headers: { Authorization: `Bearer ${token}` },
+        body: formData,
+      });
+
+      if (response.status === 201) {
+        alert("Projet ajouté avec succès");
+        init();
+        //closeModale();
+      } else if (response.status === 500) {
+        alert("Erreur du serveur");
+      } else {
+        console.log("Réponse inattendue :", response);
+      }
+    } catch (error) {
+      console.error("Erreur lors de l'envoi de la requête POST :", error);
+    }
+  }
+}
+
+submitModale.addEventListener("click", AddNewProject);

@@ -13,6 +13,53 @@ async function init(){
 };
 init();
 
+// génération des modales 
+
+// Création de l'élément aside
+const modalMain = document.createElement('aside');
+modalMain.id = 'modal1';
+
+// Création de la div closeBtnWrap
+const closeBtnWrap = document.createElement('div');
+closeBtnWrap.className = 'closeBtnWrap';
+const closeButton = document.createElement('button');
+closeButton.id = 'close-modal';
+closeButton.textContent = '×'; // Le caractère "×" pour le bouton de fermeture
+closeBtnWrap.appendChild(closeButton);
+
+// Création de la div modalTitleWrapper et du paragraphe modalTitle
+const modalTitleWrapper = document.createElement('div');
+modalTitleWrapper.className = 'modalTitleWrapper';
+const modalTitle = document.createElement('p');
+modalTitle.className = 'modalTitle';
+modalTitle.textContent = 'Galerie Photo'; // Le titre de la modale
+modalTitleWrapper.appendChild(modalTitle);
+
+// Création de la div projectModalWrapper
+const projectModalWrapper = document.createElement('div');
+projectModalWrapper.id = 'projectModalWrapper';
+const projectsImages = document.createElement('div');
+projectsImages.className = 'projectsImages';
+// Remarque : La section des projets sera générée ultérieurement par JavaScript
+
+// Ajout de la div projectsImages à projectModalWrapper
+projectModalWrapper.appendChild(projectsImages);
+
+// Création du bouton Ajouter une Photo
+const addButton = document.createElement('button');
+addButton.id = 'modaleAddProject';
+addButton.textContent = 'Ajouter une Photo';
+
+// Ajout des éléments créés à l'élément aside modal1
+modalMain.appendChild(closeBtnWrap);
+modalMain.appendChild(modalTitleWrapper);
+modalMain.appendChild(projectModalWrapper);
+modalMain.appendChild(addButton);
+
+// Ajout de l'élément aside modal1 au document 
+document.body.appendChild(modalMain);
+
+
 
 
 function genererProjet(donneesProjets){
@@ -171,6 +218,11 @@ async function openModale(e) {
   projectsModales();
 }
 
+async function openModaleBis() {
+  modal1.style.display = 'flex';
+  projectsModales();
+}
+
 async function closeModale(e) {
   e.stopPropagation
   modal1.style.display ='none'
@@ -207,11 +259,11 @@ function projectsModales() {
     projectsModale.appendChild(figure);
   });
   projectsModale.querySelectorAll(".fa-trash-can").forEach((icon) => {
-    console.log('suppression en cours')
+    
     icon.addEventListener('click', (e) => {
       e.stopPropagation();
+      console.log('suppression en cours')
       const projectId = e.target.getAttribute('data-project-id');
-      console.log('projectId')
       deleteProject(projectId);
     });
   });
@@ -324,9 +376,12 @@ async function AddNewProject(e) {
       if (response.status === 201) {
         alert("Projet ajouté avec succès");
         init();
-        genererProjet(projets);
         closeForm();
-        openModale(e);
+        openModaleBis();
+        projectsModales(projets);
+        genererProjet(projets);
+      
+
       
       } else if (response.status === 500) {
         alert("Erreur du serveur");
@@ -344,7 +399,7 @@ submitModale.addEventListener("click", AddNewProject);
 const closeFormIcon = document.getElementById('close-form');
 
 function closeForm(e) {
-  e.stopPropagation
+  //e.stopPropagation;
   addForm.style.display ='none'
 };
 

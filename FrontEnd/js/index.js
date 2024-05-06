@@ -15,7 +15,7 @@ init();
 
 // génération des modales 
 
-// Création de l'élément aside
+// Création de l'élément aside modale main
 const modalMain = document.createElement('aside');
 modalMain.id = 'modal1';
 
@@ -59,6 +59,130 @@ modalMain.appendChild(addButton);
 // Ajout de l'élément aside modal1 au document 
 document.body.appendChild(modalMain);
 
+
+
+
+// Création de l'élément aside modaleForm
+const modaleForm = document.createElement('aside');
+modaleForm.id = 'modaleForm';
+
+// Création de la div formWrapper
+const formWrapper = document.createElement('div');
+formWrapper.className = 'formWrapper';
+
+// Création de la div modale-projet-icon
+const modaleProjetIcon = document.createElement('div');
+modaleProjetIcon.className = 'modale-projet-icon';
+
+// Création de la span returnIcon et de son bouton de fermeture
+const returnIcon = document.createElement('span');
+returnIcon.className = 'returnIcon';
+const closeButtonForm = document.createElement('button');
+closeButtonForm.id = 'close-form';
+closeButtonForm.textContent = '×'; // Le caractère "×" pour le bouton de fermeture
+returnIcon.appendChild(closeButtonForm);
+
+// Création de la span closeIcon et de son icône
+const closeIconForm = document.createElement('span');
+closeIconForm.className = 'closeIcon';
+const closeIconContent = document.createElement('i');
+closeIconContent.className = 'fa-solid fa-xmark';
+closeIconForm.appendChild(closeIconContent);
+
+// Ajout de returnIcon et closeIcon à modaleProjetIcon
+modaleProjetIcon.appendChild(returnIcon);
+modaleProjetIcon.appendChild(closeIconForm);
+
+// Création de la div formItemsWrapper
+const formItemsWrapper = document.createElement('div');
+formItemsWrapper.id = 'formItemsWrapper';
+
+// Création du titre h2
+const h2 = document.createElement('h2');
+h2.textContent = 'Ajout photo'; // Le titre de la modale
+
+// Création du formulaire
+const form = document.createElement('form');
+form.className = 'addProjectForm';
+form.setAttribute('action', '');
+form.setAttribute('enctype', 'multipart/form-data');
+
+// Création de la div addPic
+const addPic = document.createElement('div');
+addPic.id = 'addPic';
+
+// Création de l'icône d'ajout de photo
+const formIconForm = document.createElement('i');
+formIconForm.className = 'fa-regular fa-image';
+formIconForm.id = 'formIcon';
+const labelWrapper = document.createElement('span');
+const photoLabel = document.createElement('label');
+photoLabel.setAttribute('for', 'photo');
+photoLabel.id = 'photoLabel';
+photoLabel.textContent = '+ Ajouter photo';
+labelWrapper.className = 'labelWrapper';
+labelWrapper.id = 'labelWrapper';
+labelWrapper.appendChild(photoLabel);
+const inputFileForm = document.createElement('input');
+inputFileForm.setAttribute('type', 'file');
+inputFileForm.setAttribute('name', 'photo');
+inputFileForm.setAttribute('id', 'photo');
+inputFileForm.setAttribute('accept', 'image/jpeg, image/png');
+const imgDetails = document.createElement('span');
+imgDetails.className = 'imgDetails';
+imgDetails.id = 'imgDetails';
+imgDetails.textContent = 'jpg, png : 4mo max';
+addPic.appendChild(formIconForm);
+addPic.appendChild(labelWrapper);
+addPic.appendChild(inputFileForm);
+addPic.appendChild(imgDetails);
+
+// Création de la div formTitle
+const formTitle = document.createElement('div');
+formTitle.className = 'formTitle';
+const titleLabel = document.createElement('label');
+titleLabel.setAttribute('for', 'titre');
+titleLabel.textContent = 'Titre';
+const titleInput = document.createElement('input');
+titleInput.className = 'js-title';
+titleInput.setAttribute('type', 'text');
+titleInput.setAttribute('name', 'titre');
+titleInput.setAttribute('id', 'titre');
+formTitle.appendChild(titleLabel);
+formTitle.appendChild(titleInput);
+
+// Création de la div formCategories
+const formCategories = document.createElement('div');
+formCategories.className = 'formCategories';
+const categoryLabel = document.createElement('label');
+categoryLabel.setAttribute('for', 'categorie');
+categoryLabel.textContent = 'Catégorie';
+const categorySelect = document.createElement('select');
+categorySelect.setAttribute('name', 'categorie');
+categorySelect.setAttribute('id', 'categorie');
+categorySelect.className = 'js-categoryId';
+formCategories.appendChild(categoryLabel);
+formCategories.appendChild(categorySelect);
+
+// Création du bouton de soumission
+const submitButton = document.createElement('input');
+submitButton.setAttribute('type', 'submit');
+submitButton.setAttribute('id', 'ModalFormSend');
+submitButton.setAttribute('value', 'Valider');
+
+// Ajout des éléments créés à leurs parents respectifs
+form.appendChild(addPic);
+form.appendChild(formTitle);
+form.appendChild(formCategories);
+form.appendChild(submitButton);
+formItemsWrapper.appendChild(h2);
+formItemsWrapper.appendChild(form);
+formWrapper.appendChild(modaleProjetIcon);
+formWrapper.appendChild(formItemsWrapper);
+modaleForm.appendChild(formWrapper);
+
+// Ajout de l'élément aside modaleForm au document (par exemple, au body)
+document.body.appendChild(modaleForm);
 
 
 

@@ -514,10 +514,13 @@ async function AddNewProject(e) {
       if (response.status === 201) {
         alert("Projet ajouté avec succès");
         init();
+
+        setTimeout(() => {
         closeForm();
         openModaleBis();
         projectsModales(projets);
         genererProjet(projets);
+        }, 1000)
       
 
       

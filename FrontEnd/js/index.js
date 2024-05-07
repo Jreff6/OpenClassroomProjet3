@@ -76,22 +76,29 @@ modaleProjetIcon.className = 'modale-projet-icon';
 
 // Création de la span returnIcon et de son bouton de fermeture
 const returnIcon = document.createElement('span');
+const backArrow = document.createElement('i');
+backArrow.className = 'fa-solid fa-arrow-left';
+backArrow.id = 'backForm'
+
 returnIcon.className = 'returnIcon';
 const closeButtonForm = document.createElement('button');
 closeButtonForm.id = 'close-form';
 closeButtonForm.textContent = '×'; // Le caractère "×" pour le bouton de fermeture
+
+returnIcon.appendChild(backArrow);
 returnIcon.appendChild(closeButtonForm);
 
+
 // Création de la span closeIcon et de son icône
-const closeIconForm = document.createElement('span');
-closeIconForm.className = 'closeIcon';
-const closeIconContent = document.createElement('i');
-closeIconContent.className = 'fa-solid fa-xmark';
-closeIconForm.appendChild(closeIconContent);
+//const closeIconForm = document.createElement('span');
+//closeIconForm.className = 'closeIcon';
+//const closeIconContent = document.createElement('i');
+//closeIconContent.className = 'fa-solid fa-xmark';
+//closeIconForm.appendChild(closeIconContent);
 
 // Ajout de returnIcon et closeIcon à modaleProjetIcon
 modaleProjetIcon.appendChild(returnIcon);
-modaleProjetIcon.appendChild(closeIconForm);
+//modaleProjetIcon.appendChild(closeIconForm);
 
 // Création de la div formItemsWrapper
 const formItemsWrapper = document.createElement('div');
@@ -441,17 +448,29 @@ inputFile.addEventListener("change", function () {
     reader.onload = function (e) {
       const imagePreview = document.createElement("img");
       imagePreview.src = e.target.result;
+
+      const existingImage = formPhoto.querySelector('img');
+      if (existingImage){
+        formPhoto.removeChild(existingImage)
+      }
       formPhoto.appendChild(imagePreview);
       formPhoto.classList.add("photo-selected");
+      imagePreview.addEventListener('click', function(){
+
+        inputFile.click();
+      })
+      
     };
     inputFile.style.display ='none'
     formIcon.style.display = 'none'
     formLabel.style.display ='none'
     formDetails.style.display = 'none'
     reader.readAsDataURL(file);
+    
 
   }
 });
+
 
 // afficher les catégories dans le menu dropdown 
 

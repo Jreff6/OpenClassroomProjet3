@@ -314,14 +314,16 @@ header {
 	margin-top: 45px;
 }
 
-.modale-projet-icon{
+.returnIcon{
 	display: flex;
 	flex-direction: row;
 	justify-content: space-between;
 	padding : 0 25px 0 25px;
 }
 
-.closeIcon{
+#close-form{
+	background: none;
+	border: none;
 	font-size: 25px;
 }
 

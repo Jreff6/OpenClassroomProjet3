@@ -89,16 +89,9 @@ returnIcon.appendChild(backArrow);
 returnIcon.appendChild(closeButtonForm);
 
 
-// Création de la span closeIcon et de son icône
-//const closeIconForm = document.createElement('span');
-//closeIconForm.className = 'closeIcon';
-//const closeIconContent = document.createElement('i');
-//closeIconContent.className = 'fa-solid fa-xmark';
-//closeIconForm.appendChild(closeIconContent);
 
 // Ajout de returnIcon et closeIcon à modaleProjetIcon
 modaleProjetIcon.appendChild(returnIcon);
-//modaleProjetIcon.appendChild(closeIconForm);
 
 // Création de la div formItemsWrapper
 const formItemsWrapper = document.createElement('div');
@@ -248,7 +241,7 @@ function createCategoryButtons(categories) {
 const allButton = document.createElement('button');
 allButton.id = 0;
 allButton.innerText = 'Tous';
-allButton.classList.add('category-button');
+allButton.classList.add('category-button','allButton');
 allButton.addEventListener('click' , () => {
   genererProjet(projets);
   console.log('filtre utilise tous')
@@ -368,6 +361,8 @@ document.addEventListener("click", (e) => {
     modal1.style.display = "none";
   }
 });
+
+editDisplay.addEventListener('click', openModale)
 
 // générer les projets dans la modale
 const projectsModale = document.querySelector(".projectsImages");
@@ -572,7 +567,27 @@ titreInput.addEventListener("input", checkFormValidity);
 selectCategory.addEventListener("input", checkFormValidity);
 inputFile.addEventListener("input", checkFormValidity);
 
+// forcer le state hover du bouton all
+
+//document.addEventListener("DOMContentLoaded", function() {
+  // Sélectionnez votre bouton
+  //const button = document.querySelector("allButton");
+  
+  // Ajoutez la classe qui déclenche l'effet de hover
+  //button.classList.add("effet-hover");
+  
+  // Retirez la classe après un court délai (par exemple, 1 seconde)
+  //setTimeout(function() {
+    //button.classList.remove("effet-hover");
+  //}, 3500); // 1000 millisecondes = 1 seconde
+//});
 
 
-
+//document.addEventListener("DOMContentLoaded", function() {
+//  const button = document.getElementsByClassName(".allButton")
+  
+//    button.addEventListener("mouseout", function() {
+//    button.classList.remove(".allButton");
+//  });
+//});
 

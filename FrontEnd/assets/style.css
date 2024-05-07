@@ -101,6 +101,10 @@ header {
 	
 }
 
+header li img{
+	height: 22px;
+}
+
 
 .closeBtnWrap{
 	display: flex;
@@ -312,6 +316,15 @@ header {
 	height: 36px;
 	border: none;
 	margin-top: 45px;
+	background-color: #A7A7A7;
+}
+
+#ModalFormSend.valid{
+	width: 237px;
+	height: 36px;
+	border: none;
+	margin-top: 45px;
+	background-color: #1D6154;
 }
 
 .returnIcon{

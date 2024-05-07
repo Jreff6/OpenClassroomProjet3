@@ -42,3 +42,20 @@ async function connect(){
     console.error('Erreur lors de la connexion')
   })
 };
+
+// REDIRECTION VERS LA SECTION CONTACT DANS LE LIEN DU LOGIN
+document.addEventListener("DOMContentLoaded", () => {
+  const sectionToScroll = window.location.hash.substring(1);
+  console.log('en attente')
+
+  if (sectionToScroll) {
+    setTimeout(function () {
+      const targetSection = document.getElementById(sectionToScroll);
+      if (targetSection) {
+        window.scrollTo({
+          top: targetSection.offsetTop,
+        });
+      }
+    }, 350);
+  }
+});

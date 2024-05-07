@@ -547,3 +547,32 @@ function closeForm(e) {
 };
 
 closeFormIcon.addEventListener('click', closeForm);
+
+
+// GESTION DU BACKROUND DU BOUTON SUBMIT DU FORM
+const submitBtnModale = document.getElementById("ModalFormSend");
+const titreInput = document.querySelector(".js-title");
+
+
+function checkFormValidity() {
+  const titre = titreInput.value;
+  const categorie = selectCategory.value;
+  const photo = inputFile.files[0];
+
+  const isFormValid = titre !== "" && categorie !== "" && photo !== undefined;
+
+  if (isFormValid) {
+    submitBtnModale.classList.add("valid");
+  } else {
+    submitBtnModale.classList.remove("valid");
+  }
+}
+
+titreInput.addEventListener("input", checkFormValidity);
+selectCategory.addEventListener("input", checkFormValidity);
+inputFile.addEventListener("input", checkFormValidity);
+
+
+
+
+

@@ -570,6 +570,11 @@ titreInput.addEventListener("input", checkFormValidity);
 selectCategory.addEventListener("input", checkFormValidity);
 inputFile.addEventListener("input", checkFormValidity);
 
+backArrow.addEventListener('click', function() {
+  closeForm();
+  setTimeout(openModaleBis, 100); // Attendre 1000 millisecondes (1 seconde) avant d'appeler openModaleBis()
+});
+
 // forcer le state hover du bouton all
 
 //document.addEventListener("DOMContentLoaded", function() {

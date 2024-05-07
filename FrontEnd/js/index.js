@@ -395,6 +395,14 @@ function projectsModales() {
   });
 }
 
+projectsModale.querySelectorAll(".fa-trash-can").forEach((icon) => {
+  icon.removeEventListener('click', handleDeleteProject);
+});
+
+// Ajouter un nouveau gestionnaire d'événements pour chaque icône de suppression
+projectsModale.querySelectorAll(".fa-trash-can").forEach((icon) => {
+  icon.addEventListener('click', handleDeleteProject);
+});
   
   function deleteProject(projectId) {
     fetch("http://localhost:5678/api/works/" + projectId, {
@@ -599,3 +607,19 @@ backArrow.addEventListener('click', function() {
 //  });
 //});
 
+
+document.addEventListener("DOMContentLoaded", () => {
+  const sectionToScroll = window.location.hash.substring(1);
+  console.log('en attente')
+
+  if (sectionToScroll) {
+    setTimeout(function () {
+      const targetSection = document.getElementById(sectionToScroll);
+      if (targetSection) {
+        window.scrollTo({
+          top: targetSection.offsetTop,
+        });
+      }
+    }, 600);
+  }
+});

@@ -9,13 +9,11 @@ loginForm.addEventListener('submit', (event) => {
   }
 connect();
 
-  console.log(userInfo);
 });
 
 
 const logFail = document.getElementById('logError')
 
-//function checkInput({}})
 
 async function connect(){
   console.log("trying to connect");

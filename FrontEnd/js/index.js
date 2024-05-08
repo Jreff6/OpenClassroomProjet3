@@ -189,7 +189,7 @@ document.body.appendChild(modaleForm);
 
 
 function genererProjet(donneesProjets){
-      console.log(donneesProjets);
+      
       document.querySelector(".gallery").innerHTML = "";
       for (let i = 0; i < donneesProjets.length; i++) {
           {
@@ -225,7 +225,6 @@ async function getCategories() {
     }
     const data = await response.json()
     .then((data) => (categories = data));
-    console.log(categories)
     return data;
 
 
@@ -246,7 +245,6 @@ allButton.innerText = 'Tous';
 allButton.classList.add('active');
 allButton.addEventListener('click' , () => {
   genererProjet(projets);
-  console.log('filtre utilise tous')
 });
 categoryContainer.appendChild(allButton);
 
@@ -270,7 +268,6 @@ async function catCreate() {
   filterStyle();
 }
 window.addEventListener("load", catCreate);
-console.log(categories)
 
 const filteredProjects = [];
 
@@ -373,8 +370,7 @@ editDisplay.addEventListener('click', openModale)
 const projectsModale = document.querySelector(".projectsImages");
 
 function projectsModales() {
-  console.log(projets);
-
+  
   projectsModale.innerHTML = "";
   projets.forEach((project) => {
     const figure = document.createElement("figure");
@@ -497,7 +493,6 @@ function categoriesSelect() {
     const option = document.createElement("option");
     option.value = categoryDrop.id;
     option.textContent = categoryDrop.name;
-    console.log('generation des choix dans la liste')
     selectCategory.appendChild(option);
   }
 }

@@ -254,7 +254,6 @@ categoryContainer.appendChild(allButton);
   categories.forEach((category) => {
     const button = document.createElement('button');
     button.innerText = category.name;
-    //button.classList.add('category-button');
     button.id = category.id;
     button.addEventListener('click', () => {
       const categoryId = parseInt(button.id);
@@ -296,6 +295,9 @@ categoryButtons.forEach((categoryButtons) => {
   loginButton.addEventListener("click", function() {
     window.location.href = "login.html";
   });
+
+
+
 
 const token = localStorage.getItem('token');
 const editDisplay = document.getElementById('editDisplay')
@@ -408,7 +410,8 @@ function projectsModales() {
   });
 }
 
-  
+// call l'api pour supprimer un projet puis call les fonctions pour regen les éléments concernés
+
   function deleteProject(projectId) {
     fetch("http://localhost:5678/api/works/" + projectId, {
       method: "DELETE",
@@ -500,9 +503,11 @@ function categoriesSelect() {
 }
 
 
+// Envoie d'un projet à l'API
 
 
 const submitModale = document.getElementById("ModalFormSend");
+
 
 async function AddNewProject(e) {
   e.preventDefault();
@@ -554,22 +559,10 @@ submitModale.addEventListener("click", AddNewProject);
 
 const closeFormIcon = document.getElementById('close-form');
 
+// close le form modal
 function closeForm(e) {
-  //e.stopPropagation;
   addForm.style.display ='none'
-  const titreInput = document.querySelector(".js-title");
-  const selectCategory = document.getElementById("categorie");
-  const inputFile = addPic.querySelector("img");
-
-  // Réinitialisation des valeurs des champs du formulaire
-  titreInput.value = "";
-  selectCategory.value = "";
-  inputFile.style.display = 'none'
-
-
 };
-
-
 
 closeFormIcon.addEventListener('click', closeForm);
 
@@ -579,6 +572,7 @@ const submitBtnModale = document.getElementById("ModalFormSend");
 const titreInput = document.querySelector(".js-title");
 
 
+// check si le form est remplis avant de pouvoir valider 
 function checkFormValidity() {
   const titre = titreInput.value;
   const categorie = selectCategory.value;
@@ -618,7 +612,7 @@ function filterStyle() {
   });
 }
 
-
+// TimeOut sur le load de la page quand redirection depuis la page de login 
 
 document.addEventListener("DOMContentLoaded", () => {
   const sectionToScroll = window.location.hash.substring(1);
@@ -637,7 +631,7 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 
-
+// Reset le display du form 
 
   async function resetDisplay(){
 

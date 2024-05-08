@@ -436,6 +436,7 @@ async function openForm(e) {
   modal1.style.display ='none'
   addForm.style.display = 'flex'
   categoriesSelect();
+  resetDisplay();
 }
 
 addProjectButton.addEventListener('click', openForm)
@@ -556,7 +557,19 @@ const closeFormIcon = document.getElementById('close-form');
 function closeForm(e) {
   //e.stopPropagation;
   addForm.style.display ='none'
+  const titreInput = document.querySelector(".js-title");
+  const selectCategory = document.getElementById("categorie");
+  const inputFile = addPic.querySelector("img");
+
+  // Réinitialisation des valeurs des champs du formulaire
+  titreInput.value = "";
+  selectCategory.value = "";
+  inputFile.style.display = 'none'
+
+
 };
+
+
 
 closeFormIcon.addEventListener('click', closeForm);
 
@@ -622,3 +635,15 @@ document.addEventListener("DOMContentLoaded", () => {
     }, 600);
   }
 });
+
+
+
+
+  async function resetDisplay(){
+
+    formPhoto.classList.remove('photo-selected')
+    formLabel.classList.remove =('photo-selected')
+    formIcon.style.display ='flex'
+    formDetails.style.display ='block'
+    formLabel.style.display ='flex'    
+    };

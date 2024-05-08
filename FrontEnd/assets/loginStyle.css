@@ -141,6 +141,7 @@ input{
 
 #logError{
     display: none;
+    color: red;
 }
 
 footer{

@@ -241,7 +241,7 @@ function createCategoryButtons(categories) {
 const allButton = document.createElement('button');
 allButton.id = 0;
 allButton.innerText = 'Tous';
-allButton.classList.add('category-button','allButton');
+allButton.classList.add('active');
 allButton.addEventListener('click' , () => {
   genererProjet(projets);
   console.log('filtre utilise tous')
@@ -252,7 +252,7 @@ categoryContainer.appendChild(allButton);
   categories.forEach((category) => {
     const button = document.createElement('button');
     button.innerText = category.name;
-    button.classList.add('category-button');
+    //button.classList.add('category-button');
     button.id = category.id;
     button.addEventListener('click', () => {
       const categoryId = parseInt(button.id);
@@ -266,6 +266,7 @@ categoryContainer.appendChild(allButton);
 async function catCreate() {
   const categories = await getCategories();
   createCategoryButtons(categories);
+  filterStyle();
 }
 window.addEventListener("load", catCreate);
 console.log(categories)
@@ -580,32 +581,25 @@ inputFile.addEventListener("input", checkFormValidity);
 
 backArrow.addEventListener('click', function() {
   closeForm();
-  setTimeout(openModaleBis, 100); // Attendre 1000 millisecondes (1 seconde) avant d'appeler openModaleBis()
+  setTimeout(openModaleBis, 100); 
 });
 
 // forcer le state hover du bouton all
 
-//document.addEventListener("DOMContentLoaded", function() {
-  // Sélectionnez votre bouton
-  //const button = document.querySelector("allButton");
-  
-  // Ajoutez la classe qui déclenche l'effet de hover
-  //button.classList.add("effet-hover");
-  
-  // Retirez la classe après un court délai (par exemple, 1 seconde)
-  //setTimeout(function() {
-    //button.classList.remove("effet-hover");
-  //}, 3500); // 1000 millisecondes = 1 seconde
-//});
+function filterStyle() {
+  document.querySelectorAll(".category > button").forEach((button) => {
+    button.addEventListener("mouseover", (e) => {
+      document.querySelectorAll(".category > button").forEach((btn) => {
+        btn.classList.remove("active");
+      });
 
+      e.target.classList.add("active");
 
-//document.addEventListener("DOMContentLoaded", function() {
-//  const button = document.getElementsByClassName(".allButton")
-  
-//    button.addEventListener("mouseout", function() {
-//    button.classList.remove(".allButton");
-//  });
-//});
+      
+    });
+  });
+}
+
 
 
 document.addEventListener("DOMContentLoaded", () => {

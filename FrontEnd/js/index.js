@@ -10,6 +10,8 @@ async function init(){
     await fetch('http://localhost:5678/api/works')
     .then((response) =>(response.json()))
     .then((data) => (projets = data));
+    genererProjet(projets);
+    projectsModales();
 };
 init();
 
@@ -386,24 +388,26 @@ function projectsModales() {
     projectsModale.appendChild(figure);
   });
   projectsModale.querySelectorAll(".fa-trash-can").forEach((icon) => {
+
+  icon.removeEventListener('click', deleteProject)
+  });
+
+  projectsModale.querySelectorAll(".fa-trash-can").forEach((icon) => {
     
     icon.addEventListener('click', (e) => {
       e.stopPropagation();
       console.log('suppression en cours')
       const projectId = e.target.getAttribute('data-project-id');
-      deleteProject(projectId);
-    });
+      if (projectId) {
+        deleteProject(projectId);
+      } else {
+        console.error('impossible de recup ID');
+      }
+    
+    }, { once: true});
   });
 }
 
-projectsModale.querySelectorAll(".fa-trash-can").forEach((icon) => {
-  icon.removeEventListener('click', handleDeleteProject);
-});
-
-// Ajouter un nouveau gestionnaire d'événements pour chaque icône de suppression
-projectsModale.querySelectorAll(".fa-trash-can").forEach((icon) => {
-  icon.addEventListener('click', handleDeleteProject);
-});
   
   function deleteProject(projectId) {
     fetch("http://localhost:5678/api/works/" + projectId, {
@@ -413,8 +417,9 @@ projectsModale.querySelectorAll(".fa-trash-can").forEach((icon) => {
       if (response.ok) {
       
         init();
-        projectsModales();
         genererProjet(projets);
+        projectsModales();
+        
       } else {
         console.error("Erreur lors de la suppression du projet.");
       }

@@ -634,5 +634,11 @@ document.addEventListener("DOMContentLoaded", () => {
     formLabel.classList.remove =('photo-selected')
     formIcon.style.display ='flex'
     formDetails.style.display ='block'
-    formLabel.style.display ='flex'    
+    formLabel.style.display ='flex'
+    const existingImage = formPhoto.querySelector('img');
+      if (existingImage){
+        formPhoto.removeChild(existingImage)
+      }
+      titleInput.value = ""
+
     };

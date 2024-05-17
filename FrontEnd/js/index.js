@@ -310,6 +310,7 @@ async function editCheck(){
   if (token){
     editDisplay.style.display = 'block'
     btnLogin.style.display = 'none'
+    filterDisplay.style.display = 'none'
   } else {
     editDisplay.style.display = 'none' 
     editButton.style.display = 'none'

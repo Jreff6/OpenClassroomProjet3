@@ -1,0 +1,154 @@
+body {
+	max-width: 1440px;
+	margin: auto;
+	font-family: 'Work Sans' ;
+	font-size: 14px;
+    background-color: #FFFEF8;
+    height: 100%;
+}
+header {
+	display: flex;
+	justify-content: space-between;
+	margin: 50px 0
+}
+
+.insta{
+    height: 22px;
+}
+h1{
+	display: flex;
+	flex-direction: column;
+	font-family: 'Syne';
+	font-size: 22px;
+	font-weight: 800;
+	color: #B1663C
+}
+
+h1 > span {
+	font-family: 'Work Sans';
+	font-size:10px;
+	letter-spacing: 0.1em;
+;
+}
+
+h2{
+	font-family: 'Syne';
+	font-weight: 700;
+	font-size: 30px;
+	color: #1D6154
+}
+nav ul {
+	display: flex;
+	align-items: center;
+	list-style-type: none;
+    max-height: 19.35px;
+
+}
+nav li {
+	padding: 0 10px;
+	font-size: 16px;  
+}
+
+li a {
+    text-decoration: none;
+    color: inherit;
+}
+
+li:hover {
+	color: #B1663C;
+}
+
+#btnLogin{
+	border: none;
+	background: none;
+	font: inherit;
+}
+
+
+#btnLogin:hover{
+	color: #B1663C;
+}
+
+.formContainer{
+    width: 100%;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#loginForm{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+}
+
+#loginForm > h1{
+    display: flex;
+    align-items: center;
+    color: #1D6154;
+    font-weight: 700;
+}
+
+#email{
+    border: none;
+    background-color: #ffffff;
+    box-shadow: 2px 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+#password{
+    border: none;
+    background-color: #ffffff;
+    box-shadow: 2px 3px 6px rgba(0, 0, 0, 0.1);
+}
+
+.sendButton{
+    display: flex;
+    justify-content: center;
+}
+
+.subButton{
+    border: 1px solid #1D6154;
+	border-radius: 30px;
+	background-color:#1D6154;
+	font: inherit;
+	color: #ffffff;
+	padding: 8px 8px 8px 8px;
+    margin-top: 10%;
+    width: 179px;
+}
+
+input{
+    height: 50px;
+    width: 379px;
+    margin-top: 6px;
+    margin-bottom: 6px;
+
+}
+
+.forgetContainer{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    margin-top: 10%;
+}
+
+.forget{
+    text-decoration: underline;
+}
+
+#logError{
+    display: none;
+    color: red;
+}
+
+footer{
+    background-color: #ffffff;
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 55vh;
+    margin-bottom: 0%;
+}
+

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+	<meta charset="UTF-8">
+  <title>Se Connecter</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Work+Sans&display=swap" rel="stylesheet">
+	<meta name="description" content="">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+		integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+		crossorigin="anonymous" referrerpolicy="no-referrer" >
+	<link rel="stylesheet" href="./assets/loginStyle.css">
+  <script src="./js/login.js" defer></script>
+	
+</head>
+
+<body>
+    <header>
+        <h1>Sophie Bluel <span>Architecte d'intérieur</span></h1>
+        <nav>
+            <ul>
+                <li><a href="./index.html#projets">projets</a></li>
+                <li><a href= "./index.html#contact">contact</a></li>
+                <li><button id="btnLogin">login</button></li>
+                <li><img src="./assets/icons/instagram.png" alt="Instagram" class="insta"></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="formContainer">
+      <form  method="post" id="loginForm">
+        <h1>Log In</h1>
+        <div class="formGroup">
+          <label for="email">E-mail</label>
+          <br>
+          <input type="email" id="email" name="email" required>
+        </div>
+        <div class="formGroup">
+          <label for="password">Mot de passe</label>
+          <br>
+          <input type="password" id="password" name="password" required>
+        </div>
+          <div class="sendButton">
+             <input type="submit" class="subButton" id="logButton" value="Se Connecter">
+          </div>
+      </form>
+      
+      <div class="forgetContainer">
+        <span class="forget">Mot de passe oublié</span>
+         
+      </div>
+     <div id="logError">Mail ou Mot de passe incorrect</div>
+    </div>
+    
+ <footer>
+    <p>Mentions Légales</p>
+ </footer>
+</body>
+
+</html>

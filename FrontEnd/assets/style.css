@@ -53,16 +53,390 @@ body {
 	font-family: 'Work Sans' ;
 	font-size: 14px;
 }
+
+button:hover{
+	cursor: pointer;
+}
+
+#editDisplay{
+	display: none;
+}
+
+.editWrap{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	background-color:black;
+	color: white;
+	height: 59px;
+}
+
+a{
+	background: none;
+	font: inherit;
+	color: inherit;
+	text-decoration: none;
+
+}
+
+.editText {
+	margin-left: 5px;
+	font-size: 16px;
+}
+
 header {
 	display: flex;
 	justify-content: space-between;
 	margin: 50px 0
 }
-section {
-	margin: 50px 0
+
+#modal1{
+	display: none;
+	flex-direction: column;
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	width: 630px;
+	height: 688px;
+	transform: translate(-50%, -50%);
+	background: white;
+	border-radius:  10px;
+	
 }
 
+header li img{
+	height: 22px;
+}
+
+
+.closeBtnWrap{
+	display: flex;
+	align-items: center;
+	justify-content: flex-end;
+	padding-top: 10px;
+	padding-right: 10px;
+}
+
+#close-modal{
+	background: none;
+	border: none;
+	font-size: 25px;
+}
+
+#modaleAddProject{
+	border: 1px solid #1D6154;
+	border-radius: 30px;
+	background-color: #1D6154;
+	font: inherit;
+	color: white;
+	padding: 8px 8px 8px 8px;
+	width: 237px;
+	margin-left: 30%;
+}
+
+.modalTitleWrapper{
+	display: flex;
+	justify-content: center;
+	font-size: 26px;
+	margin-top: 35px;
+	margin-bottom: 35px;
+}
+
+.photo-selected i,
+.photo-selected label,
+.photo-selected input,
+.photo-selected span {
+    display: none;
+}
+
+#addPic img {
+    width: auto;
+    height: 100%;
+    max-width: 100%;
+    object-fit: contain;
+}
+
+
+#projectModalWrapper{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+	margin-bottom: 5%;
+}
+
+.projectsImages{
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    margin: 15px;
+	margin-bottom: 25px;
+	border-bottom: 1px solid rgb(128, 128, 128, 0.5);
+	padding-bottom: 100px;
+}
+
+.projectsImages img {
+	margin: 10px 0;
+	height: 102.57px;
+}
+
+#figureModale{
+	position: relative;
+	display: inline-block;
+	margin: 0 7px 12px 0;
+}
+
+#figureModale i {
+    color: white;
+    position: absolute; 
+    font-size: 0.7rem;
+    top: 14px; 
+    right: 9px;
+    padding: 4px;
+    background: black;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+#modaleForm{
+	display: none;
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	width: 630px;
+	height: 688px;
+	transform: translate(-50%, -50%);
+	background: white;
+	border-radius:  10px;
+	padding-top: 18px;
+	
+}
+
+.formWrapper{
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	height: 100%;
+}
+
+#formItemsWrapper{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	height: 100%;
+}
+
+.addProjectForm{
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+#addPic{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	width: 420px;
+	height: 169px;
+	margin-top: 50px;
+	background-color:#E8F1F6;
+	border-radius: 7px;
+}
+
+#addPic i{
+	font-size: 515%;
+	color: #B9C5CC;
+	margin-top: 15px;
+}
+
+#labelWrapper label{
+	font-size: 14px;
+	font : inherit;
+	color: #306685;
+	font-weight: 500;
+}
+
+#addPic input{
+	display: none;
+}
+
+#labelWrapper{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-color: #B9C5CC;
+	border-radius: 35px;
+	width: 173px;
+	height: 36px;
+	margin-bottom: 10px;
+	margin: 10px;
+}
+
+.imgDetails {
+	font-size: 12px;
+}
+
+.formTitle{
+	display: flex;
+	flex-direction: column;
+}
+
+.formTitle label{
+	font-size: 14px;
+	margin-bottom: 5px;
+	margin-top: 20px;
+}
+
+.formTitle input{
+	height: 51px;
+	border: none;
+	box-shadow: 4px 2px 8px rgba(0, 0, 0, 0.3);
+	margin-bottom: 15px;
+
+}
+
+.formCategories{
+	display: flex;
+	flex-direction: column;
+	height: 120px;
+	border-bottom: 0.3px solid rgba(128, 128, 128, 0.5);
+}
+
+.formCategories label{
+	font-size: 14px;
+	margin-bottom: 5px;
+	margin-top: 20px;
+}
+
+.formCategories select{
+	height: 51px;
+	border: none;
+	box-shadow: 4px 2px 8px rgba(0, 0, 0, 0.3);
+	margin-bottom: 15px;
+}
+
+#ModalFormSend{
+	width: 237px;
+	height: 36px;
+	border: none;
+	margin-top: 45px;
+	background-color: #A7A7A7;
+}
+
+#ModalFormSend.valid{
+	width: 237px;
+	height: 36px;
+	border: none;
+	margin-top: 45px;
+	background-color: #1D6154;
+}
+
+.returnIcon{
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	padding : 0 25px 0 25px;
+}
+
+#close-form{
+	background: none;
+	border: none;
+	font-size: 25px;
+}
+
+.titleWrapper{
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+	flex-wrap: wrap;
+	margin-top: 10%;
+}
+
+
+
+.editButton{
+	margin-bottom: 2em;
+	background: none;
+	border: none;
+	font: inherit;
+}
+
+#editIcon{
+	margin-bottom: 2em;
+	margin-left: 1em;
+}
+
+#projectsTitle{
+	margin-bottom: 0%;
+}
+
+.filters{
+	display: flex;
+	justify-content: center;
+	margin-bottom: 1%;
+}
+
+.active{
+	color: white !important;
+	background-color: #1D6154 !important;
+}
+.category{
+	display: flex;
+	justify-content: space-between;
+	width: 40%;
+}
+
+.category *{
+	border: 1px solid #1D6154;
+	border-radius: 30px;
+	background: none;
+	font: inherit;
+	color: #1D6154;
+	padding: 8px 8px 8px 8px;
+}
+
+.category-button:hover{
+	background-color: #1D6154;
+	color: white;
+}
+
+/*.allButton{
+	background-color: #1D6154;
+	color: white;
+}
+*/
+.effet-hover:hover{
+	background-color: #1D6154;
+	color: white;
+	
+}
+
+#btnLogin{
+	border: none;
+	background: none;
+	font: inherit;
+}
+
+#btnLogout{
+	border: none;
+	background: none;
+	font: inherit;
+}
+
+
+#btnLogin:hover{
+	color: #B1663C;
+}
+
+#btnLogout:hover{
+	color: #B1663C;
+}
+
+
+
 h1{
+
 	display: flex;
 	flex-direction: column;
 	font-family: 'Syne';
